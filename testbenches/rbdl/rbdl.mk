@@ -5,10 +5,12 @@ EIGEN3_PATH=$(RBDL_PATH)/include/eigen3
 RESULTS_PATH=$(RESULTS)
 
 CXXFLAGS += -DRBD_BENCHMARKS_DIR=\"$(RBD_BENCHMARKS_PATH)\" -DRESULTS_DIR=\"$(RESULTS_PATH)\"
-CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include -I$(EIGEN3_PATH)
-CXXFLAGS += -O3 -DNDEBUG -std=c++11
-LDFLAGS += -L$(RBDL_PATH)/lib -lrbdl -lrbdl_urdfreader -lrt
-LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib
+#CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include -I$(EIGEN3_PATH)
+CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include 
+#CXXFLAGS += -O3 -DNDEBUG -std=c++11
+CXXFLAGS += -O0 -g -DDEBUG -std=c++11
+LDFLAGS += -L$(RBDL_PATH)/lib64 -lrbdl -lrbdl_urdfreader -lrt
+LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib64
 
 
 $(TARGET): $(TARGET).o

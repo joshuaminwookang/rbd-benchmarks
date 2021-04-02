@@ -55,7 +55,7 @@ int main (int argc, char* argv[]) {
    std::string urdf_filename;
    urdf_filename = RBD_BENCHMARKS_DIR"/description/urdf/"+robot_model+".urdf";
    RigidBodyDynamics::Addons::URDFReadFromFile(urdf_filename.c_str(), model, floating_base);
-   model->gravity = Math::Vector3d(0,0,0);
+   model->gravity = Math::Vector3d(0.,0.,0.);
    int dof = model->dof_count;
    std::cout << "dof = " << dof << std::endl;
 

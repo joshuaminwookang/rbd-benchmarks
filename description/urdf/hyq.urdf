@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="hyq">
+  <link name="base_link_0">
+    <inertial>
+      <origin xyz="0.05607 0.02149 0.00361" rpy="0.0 0.0 0.0"/>
+      <mass value="60.978"/>
+      <inertia ixx="1.57277" ixy="0.028469999999999995" ixz="-0.20354" iyy="8.50274" iyz="-0.00443" izz="9.19649"/>
+    </inertial>
+  </link>
+  <link name="lf_hipassembly">
+    <inertial>
+      <origin xyz="0.04263 0.0 0.16931" rpy="0.0 0.0 0.0"/>
+      <mass value="2.93"/>
+      <inertia ixx="0.050710000000000005" ixy="-4.0e-5" ixz="-0.0015900000000000011" iyy="0.054860000000000006" iyz="-5.0e-5" izz="0.00571"/>
+    </inertial>
+  </link>
+  <link name="rf_hipassembly">
+    <inertial>
+      <origin xyz="0.04263 0.0 -0.16931" rpy="0.0 0.0 0.0"/>
+      <mass value="2.93"/>
+      <inertia ixx="0.050710000000000005" ixy="4.0e-5" ixz="0.0015900000000000011" iyy="0.054860000000000006" iyz="-5.0e-5" izz="0.00571"/>
+    </inertial>
+  </link>
+  <link name="lh_hipassembly">
+    <inertial>
+      <origin xyz="0.04263 0.0 -0.16931" rpy="0.0 0.0 0.0"/>
+      <mass value="2.93"/>
+      <inertia ixx="0.050710000000000005" ixy="4.0e-5" ixz="0.0015900000000000011" iyy="0.054860000000000006" iyz="-5.0e-5" izz="0.00571"/>
+    </inertial>
+  </link>
+  <link name="rh_hipassembly">
+    <inertial>
+      <origin xyz="0.04263 0.0 0.16931" rpy="0.0 0.0 0.0"/>
+      <mass value="2.93"/>
+      <inertia ixx="0.050710000000000005" ixy="-4.0e-5" ixz="-0.0015900000000000011" iyy="0.054860000000000006" iyz="-5.0e-5" izz="0.00571"/>
+    </inertial>
+  </link>
+  <link name="lf_upperleg">
+    <inertial>
+      <origin xyz="0.15074 -0.026249999999999996 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="2.638"/>
+      <inertia ixx="0.0036799999999999997" ixy="-0.00302" ixz="0.0001" iyy="0.02719" iyz="2.0e-5" izz="0.028109999999999996"/>
+    </inertial>
+  </link>
+  <link name="rf_upperleg">
+    <inertial>
+      <origin xyz="0.15074 -0.026249999999999996 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="2.638"/>
+      <inertia ixx="0.0036799999999999997" ixy="-0.00302" ixz="0.0001" iyy="0.02719" iyz="2.0e-5" izz="0.028109999999999996"/>
+    </inertial>
+  </link>
+  <link name="lh_upperleg">
+    <inertial>
+      <origin xyz="0.15074 0.026249999999999996 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="2.638"/>
+      <inertia ixx="0.0036799999999999997" ixy="0.00302" ixz="-0.0001" iyy="0.02719" iyz="2.0e-5" izz="0.028109999999999996"/>
+    </inertial>
+  </link>
+  <link name="rh_upperleg">
+    <inertial>
+      <origin xyz="0.15074 0.026249999999999996 0.0" rpy="0.0 0.0 0.0"/>
+      <mass value="2.638"/>
+      <inertia ixx="0.0036799999999999997" ixy="0.00302" ixz="-0.0001" iyy="0.02719" iyz="2.0e-5" izz="0.028109999999999996"/>
+    </inertial>
+  </link>
+  <link name="lf_lowerleg">
+    <inertial>
+      <origin xyz="0.1254 4.0e-5 -0.0001" rpy="0.0 0.0 0.0"/>
+      <mass value="0.881"/>
+      <inertia ixx="0.00047" ixy="6.0e-5" ixz="-1.0e-5" iyy="0.01256" iyz="0.0" izz="0.012329999999999999"/>
+    </inertial>
+  </link>
+  <link name="rf_lowerleg">
+    <inertial>
+      <origin xyz="0.1254 4.0e-5 -0.0001" rpy="0.0 0.0 0.0"/>
+      <mass value="0.881"/>
+      <inertia ixx="0.00047" ixy="6.0e-5" ixz="-1.0e-5" iyy="0.01256" iyz="0.0" izz="0.012329999999999999"/>
+    </inertial>
+  </link>
+  <link name="lh_lowerleg">
+    <inertial>
+      <origin xyz="0.1254 -4.0e-5 0.0001" rpy="0.0 0.0 0.0"/>
+      <mass value="0.881"/>
+      <inertia ixx="0.00047" ixy="-6.0e-5" ixz="1.0e-5" iyy="0.01256" iyz="0.0" izz="0.012329999999999999"/>
+    </inertial>
+  </link>
+  <link name="rh_lowerleg">
+    <inertial>
+      <origin xyz="0.1254 -4.0e-5 0.0001" rpy="0.0 0.0 0.0"/>
+      <mass value="0.881"/>
+      <inertia ixx="0.00047" ixy="-6.0e-5" ixz="1.0e-5" iyy="0.01256" iyz="0.0" izz="0.012329999999999999"/>
+    </inertial>
+  </link>
+  <joint name="lf_haa_joint" type="revolute">
+    <parent link="base_link_0"/>
+    <child link="lf_hipassembly"/>
+    <origin xyz="0.3735 0.207 0.0" rpy="2.0344439357957036 1.5707962290814481 -1.1071487177940917"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="rf_haa_joint" type="revolute">
+    <parent link="base_link_0"/>
+    <child link="rf_hipassembly"/>
+    <origin xyz="0.3735 -0.207 0.0" rpy="3.141592653589793 1.570796282091413 3.141592653589793"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="lh_haa_joint" type="revolute">
+    <parent link="base_link_0"/>
+    <child link="lh_hipassembly"/>
+    <origin xyz="-0.3735 0.207 0.0" rpy="2.0344439357957036 1.5707962290814481 -1.1071487177940917"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="rh_haa_joint" type="revolute">
+    <parent link="base_link_0"/>
+    <child link="rh_hipassembly"/>
+    <origin xyz="-0.3735 -0.207 0.0" rpy="3.141592653589793 1.570796282091413 3.141592653589793"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="lf_hfe_joint" type="revolute">
+    <parent link="lf_hipassembly"/>
+    <child link="lf_upperleg"/>
+    <origin xyz="0.08 0.0 0.0" rpy="1.5707963705062866 -0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="rf_hfe_joint" type="revolute">
+    <parent link="rf_hipassembly"/>
+    <child link="rf_upperleg"/>
+    <origin xyz="0.08 0.0 0.0" rpy="-1.5707963705062866 0.0 -0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="lh_hfe_joint" type="revolute">
+    <parent link="lh_hipassembly"/>
+    <child link="lh_upperleg"/>
+    <origin xyz="0.08 0.0 0.0" rpy="1.5707963705062866 -0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="rh_hfe_joint" type="revolute">
+    <parent link="rh_hipassembly"/>
+    <child link="rh_upperleg"/>
+    <origin xyz="0.08 0.0 0.0" rpy="-1.5707963705062866 0.0 -0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="lf_kfe_joint" type="revolute">
+    <parent link="lf_upperleg"/>
+    <child link="lf_lowerleg"/>
+    <origin xyz="0.35 0.0 0.0" rpy="-4.999999980020986e-12 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="rf_kfe_joint" type="revolute">
+    <parent link="rf_upperleg"/>
+    <child link="rf_lowerleg"/>
+    <origin xyz="0.35 -0.0 0.0" rpy="4.999999980020986e-12 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="lh_kfe_joint" type="revolute">
+    <parent link="lh_upperleg"/>
+    <child link="lh_lowerleg"/>
+    <origin xyz="0.35 0.0 0.0" rpy="-4.999999980020986e-12 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+  <joint name="rh_kfe_joint" type="revolute">
+    <parent link="rh_upperleg"/>
+    <child link="rh_lowerleg"/>
+    <origin xyz="0.35 -0.0 0.0" rpy="4.999999980020986e-12 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <limit lower="-100000.0" upper="100000.0" effort="30.0" velocity="1.0"/>
+  </joint>
+</robot>

@@ -5,6 +5,7 @@ git submodule update --init --recursive
 mkdir -p ./csv/
 mkdir -p ./csv/rbdl/
 
+# Method obtained from https://dev.to/kojikanao/download-files-from-google-drive-with-curl-wget-5e4o
 # https://drive.google.com/u/1/uc?id=1AgACbjUpoWWA47U_RFR-jwIdt4lLTtdW&export=download
 fileId=1AgACbjUpoWWA47U_RFR-jwIdt4lLTtdW
 fileName=csvs.zip

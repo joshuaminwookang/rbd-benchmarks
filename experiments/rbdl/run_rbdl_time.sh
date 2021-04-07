@@ -13,7 +13,8 @@ do
    for ROBOT_MODEL in iiwa hyq atlas
    do
       echo "RBDL: $RESULTS, time, $ROBOT_MODEL"
-      ./time_rbdl $ROBOT_MODEL
+      # ./time_rbdl $ROBOT_MODEL
+      perf record -F 99 -a -g -o "perf_rbdl_$ROBOT_MODEL" -- ./time_rbdl $ROBOT_MODEL
    done
 cd $RBD_BENCHMARKS_PATH/experiments/rbdl
 done

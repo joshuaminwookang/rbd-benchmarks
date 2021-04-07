@@ -14,6 +14,8 @@
 #include "csv_reader.h"
 #include "tictoc_timer.h"
 
+#define REPEAT 100
+
 using namespace RigidBodyDynamics;
 using namespace RigidBodyDynamics::Math;
 
@@ -114,7 +116,9 @@ int main (int argc, char* argv[]) {
    timer.tic();
    SMOOTH(NBT)
    {
-      InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
+     for (int i = 0; i < REPEAT; i++){
+         InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
+     }
    }
    time_rnea = timer.toc(TicToc::NS)/NBT;
    std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
@@ -124,7 +128,9 @@ int main (int argc, char* argv[]) {
    timer.tic();
    SMOOTH(NBT)
    {
-      CompositeRigidBodyAlgorithm(*model,qs[_smooth],H);
+      for (int i = 0; i < REPEAT; i++){
+         CompositeRigidBodyAlgorithm(*model,qs[_smooth],H);
+      }
    }
    time_crba = timer.toc(TicToc::NS)/NBT;
    std::cout << "CRBA = \t\t" << time_crba << " " << timer.unitName(TicToc::NS) << std::endl;
@@ -133,7 +139,9 @@ int main (int argc, char* argv[]) {
    timer.tic();
    SMOOTH(NBT)
    {
-      ForwardDynamics(*model,qs[_smooth],qdots[_smooth],taus[_smooth],qddots[_smooth]);
+      for (int i = 0; i < REPEAT; i++){
+         ForwardDynamics(*model,qs[_smooth],qdots[_smooth],taus[_smooth],qddots[_smooth]);
+      }
    }
    time__aba = timer.toc(TicToc::NS)/NBT;
    std::cout << "ABA  = \t\t" << time__aba << " " << timer.unitName(TicToc::NS) << std::endl;

@@ -9,6 +9,7 @@ CXXFLAGS += -DRBD_BENCHMARKS_DIR=\"$(RBD_BENCHMARKS_PATH)\" -DRESULTS_DIR=\"$(RE
 CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include 
 #CXXFLAGS += -O3 -DNDEBUG -std=c++11
 CXXFLAGS += -O0 -g -DDEBUG -std=c++11
+CXXFLAGS += -fno-omit-frame-pointer
 
 #x86:
 LDFLAGS += -L$(RBDL_PATH)/lib -lrbdl -lrbdl_urdfreader -lrt

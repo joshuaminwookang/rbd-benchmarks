@@ -11,13 +11,13 @@ CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include
 CXXFLAGS += -O0 -g -DDEBUG -std=c++11
 CXXFLAGS += -fno-omit-frame-pointer
 
-#x86:
-LDFLAGS += -L$(RBDL_PATH)/lib -lrbdl -lrbdl_urdfreader -lrt
-LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib
+##x86:
+#LDFLAGS += -L$(RBDL_PATH)/lib -lrbdl -lrbdl_urdfreader -lrt
+#LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib
 
 #RISC-V:
-# LDFLAGS += -L$(RBDL_PATH)/lib64 -lrbdl -lrbdl_urdfreader -lrt
-# LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib64
+ LDFLAGS += -L$(RBDL_PATH)/lib64 -lrbdl -lrbdl_urdfreader -lrt
+ LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib64
 
 
 $(TARGET): $(TARGET).o

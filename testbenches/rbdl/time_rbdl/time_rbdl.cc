@@ -12,7 +12,9 @@
 #include <rbdl/addons/urdfreader/urdfreader.h>
 
 #include "csv_reader.h"
-#include "tictoc_timer.h"
+//#include "tictoc_timer.h"
+#include "riscv_tictoc_timer.h"
+
 
 #define REPEAT 10
 
@@ -114,14 +116,22 @@ int main (int argc, char* argv[]) {
 
    // RNEA
    timer.tic();
-   SMOOTH(NBT)
-   {
-     for (int i = 0; i < REPEAT; i++){
-         InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
-     }
+   // SMOOTH(NBT)
+   // {
+   //   for (int i = 0; i < REPEAT; i++){
+   //       InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
+   //   }
+   // }
+   // time_rnea = timer.toc(TicToc::NS)/NBT;
+   unsigned double rnea_start, rnea_end;
+   rnea_start = read_cycles();
+   for (int i = 0; i < REPEAT; i++){
+      InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
    }
-   time_rnea = timer.toc(TicToc::NS)/NBT;
-   std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
+   rnea_end = read_cycles();
+   // std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
+   std::cout << "RNEA = \t\t" << rnea_end - rnea_start << " cycles" << std::endl;
+
 
    // CRBA
    MatrixNd H = MatrixNd::Zero ((size_t) model->dof_count, (size_t) model->dof_count);
@@ -163,3 +173,5 @@ int main (int argc, char* argv[]) {
    delete model;
    return 0;
 }
+
+

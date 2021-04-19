@@ -14,7 +14,7 @@
 #include "csv_reader.h"
 #include "tictoc_timer.h"
 
-#define REPEAT 100
+#define REPEAT 10
 
 using namespace RigidBodyDynamics;
 using namespace RigidBodyDynamics::Math;

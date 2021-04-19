@@ -115,20 +115,19 @@ int main (int argc, char* argv[]) {
    std::cout << "--" << std::endl;
 
    // RNEA
-   timer.tic();
-   // SMOOTH(NBT)
-   // {
-   //   for (int i = 0; i < REPEAT; i++){
-   //       InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
-   //   }
-   // }
-   // time_rnea = timer.toc(TicToc::NS)/NBT;
-   unsigned double rnea_start, rnea_end;
-   rnea_start = read_cycles();
-   for (int i = 0; i < REPEAT; i++){
-      InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
+   // timer.tic();
+   
+   unsigned long rnea_start, rnea_end;
+   SMOOTH(NBT)
+   {
+     rnea_start = read_cycles();
+     for (int i = 0; i < REPEAT; i++){
+         InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
+     }
+     rnea_end = read_cycles();
    }
-   rnea_end = read_cycles();
+   // time_rnea = timer.toc(TicToc::NS)/NBT;
+   
    // std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
    std::cout << "RNEA = \t\t" << rnea_end - rnea_start << " cycles" << std::endl;
 

@@ -16,7 +16,7 @@
 #include "riscv_tictoc_timer.h"
 
 
-#define REPEAT 10
+#define REPEAT 5
 
 using namespace RigidBodyDynamics;
 using namespace RigidBodyDynamics::Math;
@@ -117,7 +117,7 @@ int main (int argc, char* argv[]) {
    // RNEA
    // timer.tic();
    
-   unsigned long rnea_start, rnea_end;
+   unsigned long start, end;
    SMOOTH(NBT)
    {
      rnea_start = read_cycles();
@@ -129,31 +129,36 @@ int main (int argc, char* argv[]) {
    // time_rnea = timer.toc(TicToc::NS)/NBT;
    
    // std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
-   std::cout << "RNEA = \t\t" << rnea_end - rnea_start << " cycles" << std::endl;
+   std::cout << "RNEA = \t\t" << end - start << " cycles" << std::endl;
 
 
    // CRBA
    MatrixNd H = MatrixNd::Zero ((size_t) model->dof_count, (size_t) model->dof_count);
-   timer.tic();
+   //   timer.tic();
+   unsigned long rnea_start, rnea_end;
    SMOOTH(NBT)
    {
       for (int i = 0; i < REPEAT; i++){
          CompositeRigidBodyAlgorithm(*model,qs[_smooth],H);
       }
    }
-   time_crba = timer.toc(TicToc::NS)/NBT;
-   std::cout << "CRBA = \t\t" << time_crba << " " << timer.unitName(TicToc::NS) << std::endl;
+   //time_crba = timer.toc(TicToc::NS)/NBT;
+   //std::cout << "CRBA = \t\t" << time_crba << " " << timer.unitName(TicToc::NS) << std::endl;
+   std::cout << "CRBA = \t\t" << end - start << " cycles" << std::endl;
+
 
    // ABA
-   timer.tic();
+   //   timer.tic();
    SMOOTH(NBT)
    {
       for (int i = 0; i < REPEAT; i++){
          ForwardDynamics(*model,qs[_smooth],qdots[_smooth],taus[_smooth],qddots[_smooth]);
       }
    }
-   time__aba = timer.toc(TicToc::NS)/NBT;
-   std::cout << "ABA  = \t\t" << time__aba << " " << timer.unitName(TicToc::NS) << std::endl;
+   //time__aba = timer.toc(TicToc::NS)/NBT;
+   //std::cout << "ABA  = \t\t" << time__aba << " " << timer.unitName(TicToc::NS) << std::endl;
+   std::cout << "ABA = \t\t" << end - start << " cycles" << std::endl;
+
 
    std::cout << "--" << std::endl;
 

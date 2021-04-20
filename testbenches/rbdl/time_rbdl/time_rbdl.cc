@@ -108,23 +108,22 @@ int main (int argc, char* argv[]) {
    }
 
    // Initialize some output variables
-   double time_rnea;
-   double time_crba;
-   double time__aba;
-
+   // double time_rnea;
+   // double time_crba;
+   // double time__aba;
+   unsigned long start, end;
    std::cout << "--" << std::endl;
 
    // RNEA
    // timer.tic();
    
-   unsigned long start, end;
    SMOOTH(NBT)
    {
-     rnea_start = read_cycles();
+     start = read_cycles();
      for (int i = 0; i < REPEAT; i++){
          InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
      }
-     rnea_end = read_cycles();
+     end = read_cycles();
    }
    // time_rnea = timer.toc(TicToc::NS)/NBT;
    
@@ -138,9 +137,11 @@ int main (int argc, char* argv[]) {
    unsigned long rnea_start, rnea_end;
    SMOOTH(NBT)
    {
+      start = read_cycles();
       for (int i = 0; i < REPEAT; i++){
          CompositeRigidBodyAlgorithm(*model,qs[_smooth],H);
       }
+      end = read_cycles();
    }
    //time_crba = timer.toc(TicToc::NS)/NBT;
    //std::cout << "CRBA = \t\t" << time_crba << " " << timer.unitName(TicToc::NS) << std::endl;
@@ -150,10 +151,12 @@ int main (int argc, char* argv[]) {
    // ABA
    //   timer.tic();
    SMOOTH(NBT)
-   {
+   {  
+      start = read_cycles();
       for (int i = 0; i < REPEAT; i++){
          ForwardDynamics(*model,qs[_smooth],qdots[_smooth],taus[_smooth],qddots[_smooth]);
       }
+      end = read_cycles();
    }
    //time__aba = timer.toc(TicToc::NS)/NBT;
    //std::cout << "ABA  = \t\t" << time__aba << " " << timer.unitName(TicToc::NS) << std::endl;

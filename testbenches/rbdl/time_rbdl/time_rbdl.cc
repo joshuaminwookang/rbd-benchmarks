@@ -111,6 +111,7 @@ int main (int argc, char* argv[]) {
    // double time_rnea;
    // double time_crba;
    // double time__aba;
+   unsigned long time_rnea, time_crba, time__aba;
    unsigned long start, end;
    std::cout << "--" << std::endl;
 
@@ -125,10 +126,11 @@ int main (int argc, char* argv[]) {
      }
      end = read_cycles();
    }
+   time_rnea = end-start;
    // time_rnea = timer.toc(TicToc::NS)/NBT;
    
    // std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
-   std::cout << "RNEA = \t\t" << end - start << " cycles" << std::endl;
+   std::cout << "RNEA = \t\t" << time_rnea << " cycles" << std::endl;
 
 
    // CRBA
@@ -145,7 +147,8 @@ int main (int argc, char* argv[]) {
    }
    //time_crba = timer.toc(TicToc::NS)/NBT;
    //std::cout << "CRBA = \t\t" << time_crba << " " << timer.unitName(TicToc::NS) << std::endl;
-   std::cout << "CRBA = \t\t" << end - start << " cycles" << std::endl;
+   time_crba = end-start;
+   std::cout << "CRBA = \t\t" << time_crba << " cycles" << std::endl;
 
 
    // ABA
@@ -160,7 +163,8 @@ int main (int argc, char* argv[]) {
    }
    //time__aba = timer.toc(TicToc::NS)/NBT;
    //std::cout << "ABA  = \t\t" << time__aba << " " << timer.unitName(TicToc::NS) << std::endl;
-   std::cout << "ABA = \t\t" << end - start << " cycles" << std::endl;
+   time__aba = end-start;
+   std::cout << "ABA = \t\t" << time__aba << " cycles" << std::endl;
 
 
    std::cout << "--" << std::endl;

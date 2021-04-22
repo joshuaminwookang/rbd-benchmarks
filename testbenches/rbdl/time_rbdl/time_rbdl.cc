@@ -16,7 +16,7 @@
 #include "riscv_tictoc_timer.h"
 
 
-#define REPEAT 5
+#define REPEAT 1
 
 using namespace RigidBodyDynamics;
 using namespace RigidBodyDynamics::Math;
@@ -136,7 +136,7 @@ int main (int argc, char* argv[]) {
    // CRBA
    MatrixNd H = MatrixNd::Zero ((size_t) model->dof_count, (size_t) model->dof_count);
    //   timer.tic();
-   unsigned long rnea_start, rnea_end;
+
    SMOOTH(NBT)
    {
       start = read_cycles();

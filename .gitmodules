@@ -1,3 +1,6 @@
 [submodule "description/urdf2kindsl"]
 	path = description/urdf2kindsl
 	url = https://tkoolen@bitbucket.org/tkoolen/urdf2kindsl.git
+[submodule "libs/rbdl/rbdl"]
+	path = libs/rbdl/rbdl
+	url = https://github.com/joshuaminwookang/rbdl.git

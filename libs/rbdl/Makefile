@@ -3,7 +3,7 @@ INSTALL_DIR ?= install
 
 RBDL_ZIP_URL := https://github.com/rbdl/rbdl/archive/refs/tags/v2.6.0.zip
 RBDL_ZIP_LOCAL := v2.6.0.zip
-RBDL_SRC_DIR := rbdl-src
+RBDL_SRC_DIR := rbdl
 CMAKE_TARGZ_URL := https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-linux-x86_64.tar.gz
 CMAKE_TARGZ_LOCAL := cmake-3.20.1-linux-x86_64.tar.gz
 CMAKE_INSTALL_DIR := cmake-3.20.1-linux-x86_64
@@ -14,13 +14,6 @@ CMAKE_INSTALL_DIR := cmake-3.20.1-linux-x86_64
 .PHONY: all clean
 all: $(INSTALL_DIR)
 
-$(RBDL_ZIP_LOCAL):
-	wget -q $(RBDL_ZIP_URL) -O $(RBDL_ZIP_LOCAL)
-
-$(RBDL_SRC_DIR): $(RBDL_ZIP_LOCAL)
-	unzip -q -o $(RBDL_ZIP_LOCAL)
-	mv rbdl-2.6.0 $(RBDL_SRC_DIR)
-	touch $(RBDL_SRC_DIR)
 
 $(CMAKE_INSTALL_DIR):
 	wget $(CMAKE_TARGZ_URL)

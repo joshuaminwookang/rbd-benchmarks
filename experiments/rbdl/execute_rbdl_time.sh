@@ -4,6 +4,7 @@
 RBD_BENCHMARKS_PATH=`realpath $(dirname "$0")/../..`
 RESULTS_PATH=$RBD_BENCHMARKS_PATH/results
 echo "Running time experiments..."
+export LD_LIBRARY_PATH=/root/rbd-benchmarks/libs/rbdl/install/lib64/:$LD_LIBRARY_PATH
 for DATA_NUM in 0
 do
    echo "($DATA_NUM) RBDL:"

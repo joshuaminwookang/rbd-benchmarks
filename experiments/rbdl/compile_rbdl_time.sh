@@ -1,8 +1,9 @@
 #!/bin/sh
 # run_rbdl_time.sh
 # Usage: ./run_rbdl_time.sh
+RBD_RISCV_PATH=/root/rbd-benchmarks/
 RBD_BENCHMARKS_PATH=`realpath $(dirname "$0")/../..`
-RESULTS_PATH=$RBD_BENCHMARKS_PATH/results
+RESULTS_PATH=$RBD_RISCV_PATH/results
 echo "Compiling time experiments..."
 for DATA_NUM in 0
 do

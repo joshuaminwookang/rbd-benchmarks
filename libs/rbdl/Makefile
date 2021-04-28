@@ -15,6 +15,7 @@ CMAKE_INSTALL_DIR := cmake-3.20.1-linux-x86_64
 all: $(INSTALL_DIR)
 
 
+
 $(CMAKE_INSTALL_DIR):
 	wget $(CMAKE_TARGZ_URL)
 	tar -xvf $(CMAKE_TARGZ_LOCAL)
@@ -37,5 +38,4 @@ clean: clean
 	-rm -rf $(CMAKE_INSTALL_DIR)
 	-rm -f $(RBDL_ZIP_LOCAL)
 	-rm -rf $(BUILD_DIR)
-	-rm -rf $(RBDL_SRC_DIR)
 	-rm -rf $(INSTALL_DIR)

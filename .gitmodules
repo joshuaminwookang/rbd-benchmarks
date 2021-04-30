@@ -4,6 +4,3 @@
 [submodule "libs/rbdl/rbdl"]
 	path = libs/rbdl/rbdl
 	url = https://github.com/joshuaminwookang/rbdl.git
-[submodule "gemmini-rocc-tests"]
-	path = gemmini-rocc-tests
-	url = https://github.com/ucb-bar/gemmini-rocc-tests.git

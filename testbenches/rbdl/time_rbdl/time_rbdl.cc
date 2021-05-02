@@ -14,7 +14,7 @@
 #include "csv_reader.h"
 #include "tictoc_timer.h"
 
-#define REPEAT 100
+#define REPEAT 1
 
 using namespace RigidBodyDynamics;
 using namespace RigidBodyDynamics::Math;
@@ -48,8 +48,9 @@ int main (int argc, char* argv[]) {
    }
 
    // Set up timer
-   TicToc timer(TicToc::NS);
-   const int NBT = 1000*100;
+   //TicToc timer(TicToc::NS);
+   //const int NBT = 1000*100;
+   const int NBT = 100;
 
    // Import URDF model
    Model* model = NULL;
@@ -112,41 +113,45 @@ int main (int argc, char* argv[]) {
 
    std::cout << "--" << std::endl;
 
+   std::cout << "RNEA:" << std::endl;
    // RNEA
-   timer.tic();
+   //timer.tic();
    SMOOTH(NBT)
    {
      for (int i = 0; i < REPEAT; i++){
          InverseDynamics(*model,qs[_smooth],qdots[_smooth],qddots[_smooth],taus[_smooth]);
      }
    }
-   time_rnea = timer.toc(TicToc::NS)/NBT;
-   std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
+   //time_rnea = timer.toc(TicToc::NS)/NBT;
+   //std::cout << "RNEA = \t\t" << time_rnea << " " << timer.unitName(TicToc::NS) << std::endl;
 
    // CRBA
+   std::cout << "CRBA:" << std::endl;
    MatrixNd H = MatrixNd::Zero ((size_t) model->dof_count, (size_t) model->dof_count);
-   timer.tic();
+   //timer.tic();
    SMOOTH(NBT)
    {
       for (int i = 0; i < REPEAT; i++){
          CompositeRigidBodyAlgorithm(*model,qs[_smooth],H);
       }
    }
-   time_crba = timer.toc(TicToc::NS)/NBT;
-   std::cout << "CRBA = \t\t" << time_crba << " " << timer.unitName(TicToc::NS) << std::endl;
+   //time_crba = timer.toc(TicToc::NS)/NBT;
+   //std::cout << "CRBA = \t\t" << time_crba << " " << timer.unitName(TicToc::NS) << std::endl;
 
    // ABA
-   timer.tic();
+   //timer.tic();
+   std::cout << "ABA:" << std::endl;
    SMOOTH(NBT)
    {
       for (int i = 0; i < REPEAT; i++){
          ForwardDynamics(*model,qs[_smooth],qdots[_smooth],taus[_smooth],qddots[_smooth]);
       }
    }
-   time__aba = timer.toc(TicToc::NS)/NBT;
-   std::cout << "ABA  = \t\t" << time__aba << " " << timer.unitName(TicToc::NS) << std::endl;
+   //time__aba = timer.toc(TicToc::NS)/NBT;
+   //std::cout << "ABA  = \t\t" << time__aba << " " << timer.unitName(TicToc::NS) << std::endl;
 
    std::cout << "--" << std::endl;
+   std::cout << "Complete" << std::endl;
 
    // Write CSV outputs
    std::ofstream output_csv;
@@ -155,9 +160,9 @@ int main (int argc, char* argv[]) {
    num_inputs << NBT;
    output_filename = RESULTS_DIR"/time_"+robot_model+"_"+num_inputs.str()+"_rbdl.csv";
    output_csv.open (output_filename.c_str());
-   output_csv << time_rnea << ",";
-   output_csv << time_crba << ",";
-   output_csv << time__aba;
+   //output_csv << time_rnea << ",";
+   //output_csv << time_crba << ",";
+   //output_csv << time__aba;
    output_csv.close();
 
    delete model;

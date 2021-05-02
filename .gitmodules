@@ -4,3 +4,4 @@
 [submodule "libs/rbdl/rbdl"]
 	path = libs/rbdl/rbdl
 	url = https://github.com/joshuaminwookang/rbdl.git
+	branch = riscv-gemmini

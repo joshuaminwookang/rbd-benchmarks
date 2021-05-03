@@ -49,4 +49,9 @@ inline double operator-(const struct timespec & t1,const struct timespec & t0)
 //      os << toc(DEFAULT_UNIT)/SMOOTH << " " << unitName(DEFAULT_UNIT) << std::endl;
 //   }
 //};
-
+unsigned long read_cycles(void)
+{
+    unsigned long cycles;
+    asm volatile ("rdcycle %0" : "=r" (cycles));
+    return cycles;
+}

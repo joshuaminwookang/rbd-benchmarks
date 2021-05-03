@@ -9,13 +9,14 @@ RBD_BENCHMARKS_PATH=$(RBD_BENCHMARKS)
 RBDL_PATH=$(RBD_BENCHMARKS_PATH)/libs/rbdl/install
 EIGEN3_PATH=$(RBDL_PATH)/include/eigen3
 RESULTS_PATH=$(RESULTS)
+GEMMINI_INCLUDE_PATH=/home/centos/chipyard/generators/gemmini/software/gemmini-rocc-tests/
 
 #CXX=riscv64-unknown-linux-gnu-g++
 CXX=riscv64-unknown-elf-g++
 CXXFLAGS += -D_USE_MATH_DEFINES -DRBD_BENCHMARKS_DIR=\"$(RBD_BENCHMARKS_PATH)\" -DRESULTS_DIR=\"$(RESULTS_PATH)\"
 #CXXFLAGS += -DRBD_BENCHMARKS_DIR=\"$(RBD_BENCHMARKS_PATH)\" -DRESULTS_DIR=\"$(RESULTS_PATH)\"
 #CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include -I$(EIGEN3_PATH)
-CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include 
+CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include  -I$(GEMMINI_INCLUDE_PATH)
 #CXXFLAGS += -O3 -DNDEBUG -std=c++11
 CXXFLAGS += -O0 -g -DDEBUG -std=c++11
 CXXFLAGS += -fno-omit-frame-pointer

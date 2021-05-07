@@ -9,10 +9,10 @@ RBD_BENCHMARKS_PATH=$(RBD_BENCHMARKS)
 RBDL_PATH=$(RBD_BENCHMARKS_PATH)/libs/rbdl/install
 EIGEN3_PATH=$(RBDL_PATH)/include/eigen3
 RESULTS_PATH=$(RESULTS)
-GEMMINI_INCLUDE_PATH=/home/centos/chipyard/generators/gemmini/software/gemmini-rocc-tests/
+GEMMINI_INCLUDE_PATH=$(RBD_BENCHMARKS_PATH)/libs/rbdl/gemmini-rocc-tests/
 
-#CXX=riscv64-unknown-linux-gnu-g++
-CXX=riscv64-unknown-elf-g++
+CXX=riscv64-unknown-linux-gnu-g++
+#CXX=riscv64-unknown-elf-g++
 CXXFLAGS += -D_USE_MATH_DEFINES -DRBD_BENCHMARKS_DIR=\"$(RBD_BENCHMARKS_PATH)\" -DRESULTS_DIR=\"$(RESULTS_PATH)\"
 #CXXFLAGS += -DRBD_BENCHMARKS_DIR=\"$(RBD_BENCHMARKS_PATH)\" -DRESULTS_DIR=\"$(RESULTS_PATH)\"
 #CXXFLAGS += -I$(RBDL_PATH) -I$(RBDL_PATH)/include -I$(EIGEN3_PATH)
@@ -30,8 +30,8 @@ CXXFLAGS += -fno-omit-frame-pointer
 # LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib64
 
 #RISC-V Static:
- LDFLAGS += -static -L$(RBDL_PATH)/lib -L$(RBDL_PATH)/bin -lrbdl -lrbdl_urdfreader 
- LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib
+ LDFLAGS += -static -L$(RBDL_PATH)/lib64 -L$(RBDL_PATH)/bin -lrbdl -lrbdl_urdfreader 
+ LDFLAGS += -Wl,-rpath,$(RBDL_PATH)/lib64
 
 
 $(TARGET): $(TARGET).o
